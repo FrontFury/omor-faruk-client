@@ -76,10 +76,7 @@ const Main = () => {
         <Outlet />
       </main>
 
-      <footer className="relative z-10 mx-auto mb-5 flex w-11/12 flex-col gap-2 rounded-2xl border border-emerald-950/10 bg-[#153d30] px-5 py-4 text-center text-xs text-emerald-50/75 shadow-lg sm:flex-row sm:items-center sm:justify-between sm:text-left">
-        <span className="font-semibold text-white">{profile.name} · Academic & Research Portfolio</span>
-        <span>© {new Date().getFullYear()} · All rights reserved</span>
-      </footer>
+
 
     </div>
   );

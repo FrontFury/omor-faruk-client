@@ -1,191 +1,252 @@
-import { BookOpen, BriefcaseBusiness, GraduationCap, Mail, MapPin, Phone, Sparkles } from "lucide-react"
-import { Link } from "react-router-dom"
-import { ContentSection, InfoCard } from "../../components/PortfolioPage"
-import {
-  academicExperience,
-  administrativeExperience,
-  interests,
-  languageSkills,
-  personalDetails,
-  profile,
-  researchMetrics,
-} from "../../data/profileData"
+import React from 'react';
+import { 
+  Building2, 
+  MapPin, 
+  Mail, 
+  Phone, 
+  BookOpen, 
+  UserCheck, 
+  ExternalLink,
+  BookMarked,
+  GraduationCap,
+  FlaskConical,
+  DollarSign,
+} from 'lucide-react';
 
-const Home = () => (
-  <div className="w-full space-y-10 pb-12 sm:space-y-14">
-    <section className="overflow-hidden rounded-3xl border border-[#e7e1d4] bg-[#fffefa] shadow-xl shadow-emerald-950/10">
-      <div className="grid lg:grid-cols-[1.4fr_0.8fr]">
-        <div className="p-6 sm:p-9 lg:p-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-900 sm:text-sm">
-            <span className="h-2 w-2 rounded-full bg-emerald-600" />
-            Daffodil Institute of Information & Technology
+import ProfileImage from '../../assets/Home-Profile.png';
+
+const Home = () => {
+  return (
+    <div className="w-full min-h-screen bg-[#f5f6f8] text-gray-800 p-4 sm:p-6 md:p-8 lg:p-12 font-sans">
+      <div className="w-full max-w-7xl mx-auto space-y-8">
+        
+        {/* TOP SECTION: Main Profile & CV Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* LEFT COLUMN: Main Information */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            {/* Top Pill / Badge */}
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 bg-gray-200/80 text-gray-700 text-xs md:text-sm font-semibold rounded-md uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-gray-500"></span>
+                Vice Principal (In-Charge) & Assistant Professor
+              </span>
+            </div>
+
+            {/* Name and Degrees */}
+            <div className="space-y-1">
+              <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 tracking-tight">
+                Md. Omar Faruk
+              </h1>
+              <h2 className="text-lg md:text-xl font-semibold text-gray-800">
+                Ph.D. (Scholar), Jagannath University
+              </h2>
+              <p className="text-sm md:text-base text-gray-600 font-medium">
+                MBA & BBA in Accounting & Information Systems (AIS), University of Dhaka
+              </p>
+            </div>
+
+            {/* Position Box */}
+            <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 p-2 bg-gray-100 rounded-lg text-gray-700">
+                  <Building2 size={20} />
+                </div>
+                <div>
+                  <h3 className="text-base md:text-lg font-bold text-gray-900">
+                    Head, MBA Program & Assistant Professor
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    Department of Business Administration, Daffodil Institute of Information & Technology (DIIT)
+                  </p>
+                </div>
+              </div>
+
+              <hr className="border-gray-100" />
+
+              {/* Contact Information */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs md:text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <MapPin size={16} className="text-gray-400 shrink-0" />
+                  <span>Daffodil Plaza, Mirpur Road, Dhanmondi, Dhaka-1207</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail size={16} className="text-gray-400 shrink-0" />
+                  <a href="mailto:head.mba@diit.info" className="hover:underline text-gray-700">
+                    head.mba@diit.info
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone size={16} className="text-gray-400 shrink-0" />
+                  <span>01683689117</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Career Objective */}
+            <div className="bg-[#eaf3ed] border-l-4 border-[#0b4d2c] p-4 rounded-r-lg">
+              <h4 className="text-sm font-bold text-[#0b4d2c] uppercase tracking-wide mb-1">
+                Career Objective
+              </h4>
+              <p className="italic text-gray-700 text-sm md:text-base leading-relaxed">
+                “To develop a career in an academic atmosphere that will ensure the best use of my learning, knowledge, and potential where a strong sense of responsibility is appreciated and willingness to excel forward is encouraged. Devoting myself to learning and adding value to the organization I am involved in.”
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <button className="flex items-center gap-2 bg-[#0b4d2c] hover:bg-[#083820] text-white font-medium px-5 py-2.5 rounded-md text-sm transition shadow-sm">
+                <BookOpen size={18} />
+                Explore Research & Books
+              </button>
+              
+              <button className="flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 font-medium px-5 py-2.5 rounded-md text-sm transition shadow-sm">
+                <UserCheck size={18} />
+                Administrative Leadership
+              </button>
+
+              <div className="w-full sm:w-auto">
+                <a 
+                  href="#" 
+                  className="inline-flex items-center gap-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-medium px-4 py-2.5 rounded-md text-xs md:text-sm transition"
+                >
+                  <ExternalLink size={16} />
+                  IGI Global Reviewer Profile
+                </a>
+              </div>
+            </div>
+
           </div>
-          <p className="mt-7 text-sm font-bold uppercase tracking-[0.18em] text-emerald-700">
-            Academic & Research Portfolio
-          </p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-[#153d30] sm:text-5xl">
-            {profile.name}
-          </h1>
-          <p className="mt-4 text-lg font-semibold leading-7 text-slate-700">
-            {profile.role} · Assistant Professor · Head, MBA Program
-          </p>
-          <p className="mt-4 max-w-2xl leading-7 text-slate-600">
-            {profile.credentials.join(" · ")}. Focused on teaching, academic
-            leadership, and research in accounting, corporate governance, and
-            sustainable development.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link
-              to="/research-interest"
-              className="rounded-xl bg-[#174b38] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#103828]"
-            >
-              View research
-            </Link>
-            <Link
-              to="/contact"
-              className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-700 hover:text-emerald-800"
-            >
-              Contact
-            </Link>
+
+          {/* RIGHT COLUMN: Image Preview & Metrics */}
+          <div className="lg:col-span-5 space-y-4 w-full">
+            
+            {/* Profile Image Frame Container */}
+            <div className="bg-white border-t-8 border-[#0b4d2c] rounded-b-xl shadow-sm overflow-hidden border border-gray-200 p-4 md:p-6 w-full">
+              {/* Full Width & Height Image Box */}
+              <div className="w-full h-80 sm:h-96 md:h-[450px] lg:h-[480px] bg-gray-50 rounded-sm relative overflow-hidden shadow-inner">
+                <img 
+                  src={ProfileImage} 
+                  alt="Academic Profile" 
+                  className="w-full h-full object-cover object-center" 
+                />
+              </div>
+            </div>
+
+            {/* Citations & Impact Metrics */}
+            <div className="grid grid-cols-2 gap-3 w-full">
+              <div className="bg-[#f0f2f5] p-3 rounded-lg text-center border border-gray-200">
+                <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
+                  Total Citations
+                </span>
+                <span className="text-2xl font-bold text-gray-800 my-0.5 block">23</span>
+                <span className="text-xs text-gray-500">Google Scholar</span>
+              </div>
+
+              <div className="bg-[#f0f2f5] p-3 rounded-lg text-center border border-gray-200">
+                <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
+                  h10-Index
+                </span>
+                <span className="text-2xl font-bold text-gray-800 my-0.5 block">01</span>
+                <span className="text-xs text-gray-500">Academic Impact</span>
+              </div>
+            </div>
+
+            {/* Editorial Board Reviewer Box */}
+            <div className="bg-white border border-gray-200 rounded-lg p-3 flex items-center gap-3 shadow-sm w-full">
+              <div className="p-2 bg-emerald-50 rounded text-emerald-800 shrink-0">
+                <BookOpen size={18} />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wide block">
+                  Editorial Board Reviewer
+                </span>
+                <p className="text-xs font-semibold text-gray-800">
+                  IGI Global Scientific Publishing, New York, USA
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div className="relative flex min-h-64 items-center justify-center overflow-hidden bg-gradient-to-br from-[#123b2e] to-[#277453] p-8 text-center text-white lg:min-h-full">
-          <div className="absolute h-64 w-64 rounded-full border border-white/15" />
-          <div className="absolute h-48 w-48 rounded-full border border-white/15" />
-          <div className="relative flex h-36 w-36 items-center justify-center rounded-full border-4 border-white/30 bg-white/10 text-4xl font-bold shadow-2xl backdrop-blur">
-            OF
+
+        {/* BOTTOM SECTION: Key Statistics Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 w-full">
+          
+          {/* Card 1: Authored Books */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div className="flex items-center justify-between">
+              <BookMarked className="text-gray-700" size={20} />
+              <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">
+                Authored
+              </span>
+            </div>
+            <div className="mt-4">
+              <div className="text-3xl font-bold text-gray-900">11</div>
+              <p className="text-sm font-semibold text-gray-800 mt-0.5">Published Books</p>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                University textbooks & comprehensive Business Dictionary
+              </p>
+            </div>
           </div>
-          <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/15 bg-black/15 p-4 backdrop-blur-sm">
-            <p className="font-semibold">{profile.name}</p>
-            <p className="mt-1 text-sm text-emerald-50">
-              Department of Business Administration
-            </p>
+
+          {/* Card 2: Academic Leadership */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div className="flex items-center justify-between">
+              <GraduationCap className="text-gray-700" size={20} />
+              <span className="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">
+                Pedagogy
+              </span>
+            </div>
+            <div className="mt-4">
+              <div className="text-3xl font-bold text-gray-900">15+</div>
+              <p className="text-sm font-semibold text-gray-800 mt-0.5">Years Academic Leadership</p>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                Teaching, program coordination, and curriculum governance
+              </p>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {researchMetrics.map(({ value, label }) => (
-        <div
-          key={label}
-          className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
-        >
-          <p className="text-3xl font-bold text-emerald-800">{value}</p>
-          <p className="mt-1 text-sm text-slate-600">{label}</p>
-        </div>
-      ))}
-    </section>
-
-    <ContentSection
-      title="Profile at a glance"
-      subtitle="Academic background, current appointments, and a brief career overview."
-    >
-      <div className="grid gap-4 md:grid-cols-3">
-        <InfoCard
-          meta="Education"
-          title="PhD Scholar, Jagannath University"
-          detail="MBA and BBA in Accounting & Information Systems, University of Dhaka."
-        >
-          <GraduationCap className="mt-4 text-emerald-700" size={22} />
-        </InfoCard>
-        <InfoCard
-          meta="Current role"
-          title="Vice Principal (In-Charge)"
-          detail="Assistant Professor and Head of the MBA Program at DIIT."
-        >
-          <BriefcaseBusiness className="mt-4 text-emerald-700" size={22} />
-        </InfoCard>
-        <InfoCard
-          meta="Research"
-          title="Accounting, governance & sustainability"
-          detail="Research, publications, projects, and academic contributions."
-        >
-          <BookOpen className="mt-4 text-emerald-700" size={22} />
-        </InfoCard>
-      </div>
-    </ContentSection>
-
-    <ContentSection
-      title="Career highlights"
-      subtitle="Selected appointments from the academic and administrative career."
-    >
-      <div className="grid gap-4 lg:grid-cols-2">
-        {[administrativeExperience[0], academicExperience[0]].map((item) => (
-          <InfoCard
-            key={item.role}
-            meta={item.duration}
-            title={item.role}
-            detail={item.organization}
-          />
-        ))}
-      </div>
-      <Link
-        to="/awards-experience"
-        className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-800 hover:text-emerald-950"
-      >
-        <Sparkles size={16} aria-hidden="true" />
-        View complete experience
-      </Link>
-    </ContentSection>
-
-    <ContentSection
-      title="Personal Details"
-      subtitle="Personal information reproduced from the supplied CV."
-    >
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {personalDetails.map(([label, value]) => (
-          <div key={label} className="rounded-xl border border-slate-200 bg-white p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
-            <p className="mt-1 font-medium text-slate-800">{value}</p>
+          {/* Card 3: Peer-Reviewed Papers */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div className="flex items-center justify-between">
+              <FlaskConical className="text-gray-700" size={20} />
+              <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">
+                Research
+              </span>
+            </div>
+            <div className="mt-4">
+              <div className="text-3xl font-bold text-gray-900">13+</div>
+              <p className="text-sm font-semibold text-gray-800 mt-0.5">Peer-Reviewed Papers</p>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                Published & forthcoming articles in JIBM, IGI Global, Bentham
+              </p>
+            </div>
           </div>
-        ))}
-        <div className="rounded-xl border border-slate-200 bg-white p-4 sm:col-span-2 lg:col-span-3">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Permanent address</p>
-          <p className="mt-1 font-medium text-slate-800">{profile.address}</p>
+
+          {/* Card 4: Funded Research Grant */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div className="flex items-center justify-between">
+              <DollarSign className="text-gray-700" size={20} />
+              <span className="bg-[#0b4d2c] text-white text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">
+                Approved
+              </span>
+            </div>
+            <div className="mt-4">
+              <div className="text-3xl font-serif font-bold text-[#0b4d2c]">UGC</div>
+              <p className="text-sm font-semibold text-gray-800 mt-0.5">Funded Research Grant</p>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                Voluntary disclosure & board attributes project (Phase 2)
+              </p>
+            </div>
+          </div>
+
         </div>
-      </div>
-    </ContentSection>
 
-    <ContentSection title="Interests & Languages">
-      <div className="grid gap-4 md:grid-cols-2">
-        <InfoCard title="Interests">
-          <p className="mt-2 text-sm leading-6 text-slate-600">{interests.join(" · ")}</p>
-        </InfoCard>
-        <InfoCard title="Language proficiency">
-          <ul className="mt-2 space-y-1 text-sm leading-6 text-slate-600">
-            {languageSkills.map((language) => <li key={language}>{language}</li>)}
-          </ul>
-        </InfoCard>
       </div>
-    </ContentSection>
+    </div>
+  );
+};
 
-    <section className="grid gap-4 rounded-3xl bg-emerald-50 p-6 sm:grid-cols-2 sm:p-8">
-      <div className="flex items-start gap-3">
-        <MapPin className="mt-1 shrink-0 text-emerald-800" size={19} />
-        <div>
-          <h2 className="font-semibold text-slate-900">Office</h2>
-          <p className="mt-1 text-sm leading-6 text-slate-600">{profile.office}</p>
-        </div>
-      </div>
-      <div className="space-y-3">
-        <a
-          className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-emerald-900"
-          href={`mailto:${profile.email}`}
-        >
-          <Mail size={18} className="text-emerald-800" />
-          {profile.email}
-        </a>
-        <a
-          className="flex items-center gap-3 text-sm font-medium text-slate-700 hover:text-emerald-900"
-          href={`tel:${profile.phone}`}
-        >
-          <Phone size={18} className="text-emerald-800" />
-          {profile.phone}
-        </a>
-      </div>
-    </section>
-  </div>
-)
-
-export default Home
+export default Home;

@@ -13,23 +13,21 @@ import Research from "../pages/Research/Research"
 import Tools from "../pages/Tools/Tools"
 import VoluntaryWork from "../pages/VoluntaryWork/VoluntaryWork"
 import Workshops from "../pages/Workshops/Workshops"
-import { routeConfig } from "./routeConfig"
 
-const routeElements = {
-  "academic-degree": <Academics />,
-  "awards-experience": <Experience />,
-  "research-interest": <Research />,
-  "research-tools": <Tools />,
-  "completed-courses": <Courses />,
-  "workshops-seminars": <Workshops />,
-  "honors-awards": <Honors />,
-  "csr-voluntary-work": <VoluntaryWork />,
-  gallery: <Gallery />,
-  referees: <Referees />,
-  contact: <Contact />,
-}
-
-export { routeConfig }
+// Config matching Navbar routes
+const routeConfig = [
+  { path: "academic-degree", element: <Academics /> },
+  { path: "awards-experience", element: <Experience /> },
+  { path: "research-interest", element: <Research /> },
+  { path: "research-tools", element: <Tools /> },
+  { path: "completed-courses", element: <Courses /> },
+  { path: "workshops-seminars", element: <Workshops /> },
+  { path: "honors-awards", element: <Honors /> },
+  { path: "csr-voluntary-work", element: <VoluntaryWork /> },
+  { path: "gallery", element: <Gallery /> },
+  { path: "referees", element: <Referees /> },
+  { path: "contact", element: <Contact /> },
+]
 
 export const router = createBrowserRouter([
   {
@@ -37,9 +35,9 @@ export const router = createBrowserRouter([
     element: <Main />,
     children: [
       { index: true, element: <Home /> },
-      ...routeConfig.map(({ path }) => ({
+      ...routeConfig.map(({ path, element }) => ({
         path,
-        element: routeElements[path],
+        element,
       })),
       { path: "*", element: <NotFound /> },
     ],
