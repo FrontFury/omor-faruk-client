@@ -11,7 +11,6 @@ import NotFound from "../pages/NotFound"
 import Referees from "../pages/Referees/Referees"
 import Research from "../pages/Research/Research"
 import Tools from "../pages/Tools/Tools"
-import VoluntaryWork from "../pages/VoluntaryWork/VoluntaryWork"
 import Workshops from "../pages/Workshops/Workshops"
 
 // Config matching Navbar routes
@@ -23,7 +22,6 @@ const routeConfig = [
   { path: "completed-courses", element: <Courses /> },
   { path: "workshops-seminars", element: <Workshops /> },
   { path: "honors-awards", element: <Honors /> },
-  { path: "csr-voluntary-work", element: <VoluntaryWork /> },
   { path: "gallery", element: <Gallery /> },
   { path: "referees", element: <Referees /> },
   { path: "contact", element: <Contact /> },

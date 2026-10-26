@@ -10,7 +10,6 @@ const routeConfig = [
   { path: "completed-courses", label: "Books" },
   { path: "workshops-seminars", label: "Activities" },
   { path: "honors-awards", label: "Honors" },
-  { path: "csr-voluntary-work", label: "Volunteering" },
   { path: "gallery", label: "Gallery" },
   { path: "referees", label: "References" },
   { path: "contact", label: "Contact" },
