@@ -13,7 +13,7 @@ import {
   DollarSign,
 } from 'lucide-react';
 
-import ProfileImage from '../../assets/Home-Profile.png';
+import ProfileImage from '../../assets/Home-Profile.jpeg';
 
 const Home = () => {
   return (

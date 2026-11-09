@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import emailjs from "@emailjs/browser"
 import { 
   Mail, 
   MapPin, 
@@ -33,11 +34,48 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  // Validation Check
+  const isFormValid =
+    formData.name.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.subject.trim() !== "" &&
+    formData.message.trim() !== "";
+
+  // EmailJS Send Function
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Perform form submission logic if needed
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 4000)
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setIsSubmitted(true);
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Please try again.");
+    }
   }
 
   return (
@@ -239,14 +277,16 @@ const Contact = () => {
                         />
                       </div>
 
-                      {/* Submit Button */}
-                      <button
-                        type="submit"
-                        className="w-full inline-flex items-center justify-center gap-2 font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 px-5 py-3.5 rounded-2xl hover:from-amber-300 hover:to-amber-400 transition-all shadow-lg text-xs uppercase tracking-wider"
-                      >
-                        <Send size={15} />
-                        <span>Send Message</span>
-                      </button>
+                      {/* Submit Button (Only visible when form is valid) */}
+                      {isFormValid && (
+                        <button
+                          type="submit"
+                          className="w-full inline-flex items-center justify-center gap-2 font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 px-5 py-3.5 rounded-2xl hover:from-amber-300 hover:to-amber-400 transition-all shadow-lg text-xs uppercase tracking-wider"
+                        >
+                          <Send size={15} />
+                          <span>Send Message</span>
+                        </button>
+                      )}
 
                     </form>
                   )}
